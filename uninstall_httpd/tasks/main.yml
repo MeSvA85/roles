@@ -1,0 +1,13 @@
+---
+# tasks file for my_new_role
+#
+
+- name: Disable {{ web_pkg }}
+  ansible.builtin.service:
+    name: "{{ web_pkg }}"
+    state: stopped
+
+- name: Uninstall {{ web_pkg }}
+  ansible.builtin.dnf:
+    name: "{{ web_pkg }}"
+    state: absent
